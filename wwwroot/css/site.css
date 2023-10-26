@@ -19,3 +19,24 @@ footer {
   bottom: 0; 
   margin: 10px 0px 20px 0px;
 }
+
+h1{
+  text-align: center;
+}
+
+.cards{
+  display: flex;
+  justify-content: space-between;
+  margin: 9%;
+}
+
+.slogan p{
+  text-align: center;
+  font-size: 20px;
+}
+
+.slogan img{
+margin-top: 40px;
+margin-left: 825px;
+margin-bottom: -90px;
+}

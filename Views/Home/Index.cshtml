@@ -1,5 +1,72 @@
 ﻿@{
-    ViewData["Title"] = "Index";
+  ViewData["Title"] = "Index";
 }
 
-<h1>TP XX - Index</h1>
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+  <script src="js/site.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+
+
+<h1>Pelis Yuze Suken</h1>
+<div class="slogan">
+<p>Donde junto a mis amigos todo sale bien</p>
+<img src="img/logo.jfif" alt="">
+</div>
+
+<div class="cards">
+  @foreach (Series series in ViewBag.ListaSeries)
+  {
+    <div class="card" style="width: 18rem;">
+      <img src=@series.ImagenSerie class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">@series.Nombre</h5>
+        <p class="card-text">@series.Sinopsis</p>
+        <button type="button"class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" onclick="MostrarActores('@series.Nombre', @series.IdSerie)">
+        Actores
+        </button>
+
+        <button type="button"class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" onclick="MostrarTemporadas('@series.Nombre', @series.IdSerie)">
+        temporadas
+        </button>
+
+        <button type="button"class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" onclick="MostrarInfoSerie('@series.Nombre', @series.IdSerie)">
+        ver info
+        </button>
+      </div>
+    </div>
+  }
+</div>
+
+
+
+<div class="modal fade" id="modal" tabindex="-1" aria-labelleadby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="nombre"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p id="contenido"></p>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
